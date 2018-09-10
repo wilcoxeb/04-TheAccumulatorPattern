@@ -110,7 +110,7 @@ def sum_more_cosines(m, n):
 
     total = 0
     for k in range(n-m+1):
-        total = total + math.cos(m +k)
+        total = total + math.cos(m + k)
     return total
 
 
@@ -148,7 +148,7 @@ def run_test_count_sines_from():
 
     # Test 3:
     expected = 5
-    answer = count_sines_from(2,9)
+    answer = count_sines_from(2, 9)
     print('Test 3 expected:', expected)
     print('       actual   ', answer)
 
