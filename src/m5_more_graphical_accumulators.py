@@ -112,6 +112,15 @@ def draw_squares_from_circle(n, circle, window):
     ####################################################################
     # ------------------------------------------------------------------
 
+    radius = 10
+    circle = (x, y)
+
+    for k in range(n):
+        point = rg.Point(x, y)
+        circle = rg.Circle(point, radius)
+        circle.attach_to(window)
+    window.render()
+
 
 def run_test_draw_circles_from_rectangle():
     """ Tests the   draw_circles_from_rectangle  function. """
@@ -122,7 +131,7 @@ def run_test_draw_circles_from_rectangle():
     print('--------------------------------------------------')
 
     # ------------------------------------------------------------------
-    # TODO: 3. Implement this TEST function.
+    # Done: 3. Implement this TEST function.
     #   It TESTS the  draw_circles_from_rectangle  function
     #   defined below.  Include at least **   3   ** tests, of which
     #      ***  at least TWO tests are on ONE window and
@@ -134,6 +143,29 @@ def run_test_draw_circles_from_rectangle():
     #   Follow the same form as the example in a previous problem.
     ####################################################################
     # ------------------------------------------------------------------
+
+    window3 = rg.RoseWindow(0, 100)
+    window4 = rg.RoseWindow(300, 300)
+
+    # Test 1
+    circle = rg.Circle(rg.Point(25, 25), 20)
+    circle.fill_color = 'red'
+    rectangle = rg.Rectangle(rg.Point(25, 75), rg.Point(30, 80))
+    draw_circles_from_rectangle(25, 87, rectangle, window3)
+
+    # Test 2
+    circle = rg.Circle(rg.Point(10, 50), 10)
+    circle.fill_color = 'blue'
+    rectangle = rg.Rectangle(rg.Point(10, 70), rg.Point(35, 80))
+    draw_circles_from_rectangle(10, 17,  rectangle, window3)
+
+    # Test 3
+    circle = rg.Circle(rg.Point(100, 75), 40)
+    circle.fill_color = 'green'
+    rectangle = rg.Rectangle(rg.Point(30, 90), rg.Point(50, 79))
+    draw_circles_from_rectangle(40, 10,  rectangle, window4)
+
+    window3.close_on_mouse_click()
 
 
 def draw_circles_from_rectangle(m, n, rectangle, window):

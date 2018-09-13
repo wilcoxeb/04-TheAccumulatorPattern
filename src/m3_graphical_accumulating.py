@@ -96,7 +96,7 @@ def draw_parallel_lines(n, point, length, window):
       :type window: rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # Done: 2. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
@@ -110,15 +110,9 @@ def draw_parallel_lines(n, point, length, window):
     ####################################################################
     # ------------------------------------------------------------------
 
-    x = point.x
-    y = point.y
-
-    for _ in range(n):
-        point = rg.Point(x, y)
-        rg.Line(point, y)
-        rg.Line.__sizeof__(n)
-        rg.Line.__init__(draw_lines(n, 30, 0), 30, 0)
-
+    for k in range(n):
+        line1 = rg.Line(rg.Point(point.x, point.y + (k * 30)), rg.Point(point.x + length, point.y + (k * 30)))
+        line1.attach_to(window)
     window.render()
 
 
@@ -172,7 +166,7 @@ def draw_lines(n, point, window):
       :type window: rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # Done: 3. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
@@ -185,9 +179,16 @@ def draw_lines(n, point, window):
     #          ** FIRST DO A CONCRETE EXAMPLE BY HAND! **
     ####################################################################
     # ------------------------------------------------------------------
-
-
+    y = point.y + 100
+    for k in range(n):
+        line1 = rg.Line(rg.Point(point.x, point.y), rg.Point((point.x + 100), y))
+        line1.attach_to(window)
+        # print(line1)
+        y = y - (200/(n-1))
+    window.render()
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
 # ----------------------------------------------------------------------
+
+
 main()
